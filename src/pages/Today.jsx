@@ -28,7 +28,7 @@ function Today({weather ,temp}) {
     <>
     <div className="bg-dark-subtle h-fit w-full d-flex justify-content-center align-items-center pt-px  flex-col gap-0 row-gap-3">
         
-        <div className='h-fit w-2/3 bg-white flex flex-wrap flex-col rounded-xl' >
+        <div className='h-fit w-3/4 bg-white flex flex-wrap flex-col rounded-xl' >
           <div className='flex  justify-content-between align-items-center px-2 '><p>CURRENT WEATHER</p>
             <p className='flex align-items-center'>{time.toLocaleTimeString()}</p>
           </div>
@@ -57,21 +57,21 @@ function Today({weather ,temp}) {
           </div>
         </div>
         
-         <div className='h-fit w-2/3 bg-white rounded-xl '>
+         <div className='h-fit w-3/4 bg-white rounded-xl '>
            <p className='flex align-items-center px-3'>TODAY CONDITION</p>
            <hr />
            <p className='text-xl px-3 flex align-items-center'>Today Weather is {weather?.current?.condition?.text}</p>
          
           </div>
-          <div className='h-fit w-2/3 bg-white rounded-xl uppercase'>
+          <div className='h-fit w-3/4 bg-white rounded-xl uppercase'>
             <p>{weather?.location?.name} Weather Radar</p>
             
             <div className='object-cover flex overflow-x-hidden cursor-pointer '>
-              <img src="map.jpg" alt="" width="900px"/>
+              <img src="map.jpg" alt="" width="1000px"/>
             </div>
           </div>
 
-          <div className='h-fit w-2/3 bg-white rounded-xl uppercase'>
+          <div className='h-fit w-3/4 bg-white rounded-xl uppercase'>
           <p>HOURLY WEATHER</p>
           <div className='hourly overflow-x-scroll gap-x-4 px-2'>
             {weather?.forecast?.forecastday[0]?.hour?.map((item,index)=>
