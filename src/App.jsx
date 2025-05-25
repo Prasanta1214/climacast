@@ -25,7 +25,7 @@ function App() {
         })
 }
 useEffect(()=>{
-    const url='http://api.weatherapi.com/v1/forecast.json'
+    const url='https://api.weatherapi.com/v1/forecast.json'
         const key = '1f51f558dee1438a82450109252105'
 
         fetch(`${url}?key=${key}&q=surat`)
