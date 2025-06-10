@@ -7,7 +7,7 @@ import "../css/Today.css"
 function Today({weather ,temp}) {
 
   const [time, setTime] = useState(new Date());
-   const [showMap, setShowMap] = useState(false);
+  const [showMap, setShowMap] = useState(false);
 
 
 
@@ -18,7 +18,7 @@ function Today({weather ,temp}) {
 
     // Cleanup on unmount
     return () => clearInterval(interval);
-  }, []);
+    }, []);
 
 
   const position=[15.40,74.86]
@@ -63,8 +63,8 @@ function Today({weather ,temp}) {
            <p className='text-xl px-3 flex align-items-center'>Today Weather is {weather?.current?.condition?.text}</p>
          
           </div>
-          <div className='h-fit w-3/4 bg-white rounded-xl uppercase'>
-            <p>{weather?.location?.name} Weather Radar</p>
+          <div className='h-fit w-3/4 bg-white rounded-xl uppercase '>
+            <p className='px-3'>{weather?.location?.name} Weather Radar</p>
             
             <div className='object-cover flex overflow-x-hidden cursor-pointer '>
               <img src="map.jpg" alt="" width="1000px"/>
@@ -72,8 +72,8 @@ function Today({weather ,temp}) {
           </div>
 
           <div className='h-fit w-3/4 bg-white rounded-xl uppercase'>
-          <p>HOURLY WEATHER</p>
-          <div className='hourly overflow-x-scroll gap-x-4 px-2'>
+          <p className='px-3'>HOURLY WEATHER</p>
+          <div className='hourly overflow-x-scroll  gap-x-4 px-2'>
             {weather?.forecast?.forecastday[0]?.hour?.map((item,index)=>
             <div className="hourly-con flex flex-col justify-content-center align-items-center bg-light">
               <h4>{item.time.slice(-5)}</h4>
@@ -82,6 +82,33 @@ function Today({weather ,temp}) {
               <h6>{item.chance_of_rain}%</h6>
             </div>
             )}
+          </div>
+          </div>
+          <div className=' h-fit w-3/4 bg-white rounded-xl'>
+          <p className='px-3'>SUN & MOON</p>
+          <hr />
+          <div>
+            <div className='flex justify-content-between align-items-center px-8'>
+              <div className=' inset-y-0 left-0 flex w-40 align-items-center gap-x-3 px-3'>
+                <img src="sunpic.jpg" width="60px" />
+                <p>Sun</p>
+              </div>
+              <div className='flex w-40 align-items-center flex-col inset-y-0 right-0  '>
+                <p >Rise: {weather?.forecast?.forecastday[0]?.astro?.sunrise}</p>
+                <p>Set: {weather?.forecast?.forecastday[0]?.astro?.sunset}</p>
+              </div>
+            </div>
+            
+           <div className='flex justify-content-between align-items-center px-8'>
+              <div className=' inset-y-0 left-0  flex w-40 align-items-center gap-x-3 px-3'>
+                <img src="moon.png" width="60px" />
+                <p> {weather?.forecast?.forecastday[0]?.astro?.moon_phase}</p>
+              </div>
+              <div className='flex w-40 align-items-center flex-col inset-y-0 right-0  '>
+                <p >Rise: {weather?.forecast?.forecastday[0]?.astro?.moonrise}</p>
+                <p>Set: {weather?.forecast?.forecastday[0]?.astro?.moonset}</p>
+              </div>
+            </div>
           </div>
 
           </div>
